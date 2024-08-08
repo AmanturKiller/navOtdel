@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     
     'user',
     'building',
-    
+    'department',
 ]
 
 MIDDLEWARE = [
