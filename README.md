@@ -11,6 +11,8 @@
 # Справочник <span style="color: #dc0203">Red Petroleum</span>
 
 ### Спроектировано с помощью:
+- [<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [<img src="https://img.shields.io/badge/bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">](https://getbootstrap.com/)
 - [<img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54">](https://www.python.org/)
 - [<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">](https://www.djangoproject.com/)
 - ...
