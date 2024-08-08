@@ -18,8 +18,8 @@ class Department(models.Model):
     )
 
     class Meta:
-        verbose_name = "Отдел",
-        verbose_name_plural = "Отделы",
+        verbose_name = "Отдел"
+        verbose_name_plural = "Отделы"
 
     def __str__(self):
         return self.name
