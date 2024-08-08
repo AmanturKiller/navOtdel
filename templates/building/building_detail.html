@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Cтраница одного здания</h1>
+    <div> Название: {{ building.name }} </div>
+    <div> Менеджер:{{ building.manager }}</div>
+    <div> Адрес: {{ building.address }} </div>
+    <div> Lat-Decimal: {{ building.lat_decimal }}</div>
+    <div> Lon-Decimal: {{ building.lon_decimal }}</div>
+    <div> Тип здания: {{ building.building_type }}</div>
+{% endblock %}
