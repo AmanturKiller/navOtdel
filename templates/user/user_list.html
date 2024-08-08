@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for user in user_list %}
+        <div>
+            <a href="{% url 'user-info' user.pk %}">
+                {{ user.username }}
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}

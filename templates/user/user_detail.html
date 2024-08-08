@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Личный кабинет</h1>
+    <div> {{ user.bio }} </div>
+    <div> {{ user.username }}</div>
+    {% if user.photo %}
+        <img src="{{ user.photo.url }}" height="350px">
+    {% endif %}
+{% endblock %}
