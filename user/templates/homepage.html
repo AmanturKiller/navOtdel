@@ -1,0 +1,7 @@
+<h1>Личный кабинет</h1>
+{% for user in user_lst %}
+    <div> {{ user.bio }} </div>
+    <div> {{ user.username }}</div>
+    <img scr="/media/{{ user.photo }}">
+
+{% endfor %}

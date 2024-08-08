@@ -4,6 +4,12 @@ from .serializers import UserSerializer
 from django.shortcuts import render
 
 
+def homepage(request):
+    user_lst = User.objects.all()
+    context = {'user_lst': user_lst}
+    return render(request, 'homepage.html', context)
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
