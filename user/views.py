@@ -1,7 +1,10 @@
 from rest_framework import viewsets
-from .models import User
 from .serializers import UserSerializer
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
 
 
 def user_detail(request, pk):

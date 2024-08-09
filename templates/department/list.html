@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %} 
+
+{% block content %}
+
+    <h1>Отделы</h1>
+    <p class="row">
+        <form class="col-lg-6" method="get">
+            {% bootstrap_form filter_object.form %}
+            <button class="btn btn-outline-success">Применить</button>
+        </form>
+    </p>
+    <table class="table table-stripped table-hover table-bordered">
+        <thead>
+            <tr class="table-light">
+                <th>Отдел</th>
+                <th>Родитель</th>
+                <th>Менеджер</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for department in filter_object.qs %}
+                <tr>
+                    <td>{{ department.name }}</td>
+                    <td>{{ department.parent }}</td>
+                    <td>{{ department.manager }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
