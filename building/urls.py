@@ -10,10 +10,5 @@ building_router.register("viewset", BuildingViewSet)
 
 urlpatterns = [
     path('detail/<int:pk>/', building_detail, name="building-info"),
-
-    path('v1/list/', BuildingList.as_view()),
-    path('v1/create/', BuildingCreateAPIView.as_view()),
-    path('v1/detail/<int:pk>/', BuildingDetailAPIView.as_view()),
-    path('v1/update/<int:pk>/', BuildingUpdateAPIView.as_view()),
-    path('v1/delete/<int:pk>/', BuildingDeleteAPIView.as_view()),
+    path('', include(building_router.urls)),
 ]
