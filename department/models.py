@@ -8,8 +8,8 @@ class Department(models.Model):
     name = models.CharField(verbose_name="Имя", max_length=100)
     description = models.TextField(verbose_name="Описание", null=True, blank=True)
     parent = models.ForeignKey(
-        to='self',
-        verbose_name="Наследуется от",
+        to='self', 
+        verbose_name="Родитель",
         null=True, blank=True,
         on_delete=models.CASCADE,
     )
