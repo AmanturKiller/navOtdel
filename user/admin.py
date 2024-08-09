@@ -7,4 +7,4 @@ User = get_user_model()
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    fieldsets = UserAdmin.fieldsets + ((None, {"fields": ["bio", "photo"]}),)
+    fieldsets = UserAdmin.fieldsets + ((None, {"fields": ["bio", "photo", "department", "building", "position"]}),)
