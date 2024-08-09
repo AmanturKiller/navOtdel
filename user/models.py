@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from department.models import Department
-from building.models import Building
+# from department.models import Department
+# from building.models import Building
 
 class User(AbstractUser):
     bio = models.TextField(null=True, blank=True, verbose_name='биография')
@@ -13,8 +13,14 @@ class User(AbstractUser):
     )
     USERNAME_FIELD = 'username'
 
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, verbose_name='Отдел')
-    building = models.ForeignKey(Building, on_delete=models.CASCADE, verbose_name='Объект')
+    department = models.ForeignKey(
+        'department.Department',
+        on_delete=models.CASCADE,
+        verbose_name='Отдел',
+        related_name='users_list',
+        null=True
+    )
+    building = models.ForeignKey('building.Building', on_delete=models.CASCADE, verbose_name='Объект', related_name='users_list', null=True)
 
     specialist = "specialist"
     senior_specialist = "senior_specialist"
@@ -31,5 +37,6 @@ class User(AbstractUser):
     position = models.CharField(
         max_length=50,
         choices=POSITION_CHOICES,
-        verbose_name="Должность"
+        verbose_name="Должность",
+        null=True
     )

@@ -20,7 +20,7 @@ class Building(models.Model):
     ]
 
     name = models.CharField(max_length=50, null=False, blank=False, verbose_name="Название")
-    manager = models.ForeignKey(User, on_delete=models.CASCADE, related_name='buildings')
+    manager = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Менеджер', related_name='building_as_manager')
     address = models.TextField(null=False, blank=False, verbose_name="Адрес")
     lat_decimal = models.DecimalField(max_digits=20, decimal_places=15, verbose_name="широта")
     lon_decimal = models.DecimalField(max_digits=20, decimal_places=15, verbose_name="долгота")
