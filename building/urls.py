@@ -9,6 +9,7 @@ building_router.register("viewset", BuildingViewSet)
 
 
 urlpatterns = [
+    path('list/', buildings_list, name="buildings-list"),
     path('detail/<int:pk>/', building_detail, name="building-info"),
     path('', include(building_router.urls)),
 ]
