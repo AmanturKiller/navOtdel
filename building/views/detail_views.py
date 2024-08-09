@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Building
+from building.models import Building
 
 
 def building_detail(request, pk):
