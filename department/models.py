@@ -7,7 +7,7 @@ class Department(models.Model):
     description = models.TextField(verbose_name="Описание", null=True, blank=True)
     parent = models.ForeignKey(
         to='self', 
-        verbose_name="Наследуется от",
+        verbose_name="Родитель",
         null=True, blank=True, 
         on_delete=models.CASCADE,
     )
