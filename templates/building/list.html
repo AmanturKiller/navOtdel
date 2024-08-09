@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+    {% for building in buildings %}
+        <div>Название: {{ building.name }} | Менеджер: {{ building.manager }} | Адрес: {{ building.address }} | Тип: {{ building.building_type }}</div>
+    {% endfor %}
+
+{% endblock %}
