@@ -10,8 +10,15 @@
     <title>Red Info</title>
 </head>
 <body>
+    <nav>
+        {% if request.user.is_authenticated %}
+            <a href="/signout/" style="margin-left: 3%;">Выйти</a>
+            {% else %}
+            <a href="/registration/" style="margin-left: 3%;">Регистрация</a>
+            <a href="/signin/" style="margin-left: 3%;">Войти</a>
+        {% endif %}
+    </nav>
     {% block content %}
-    
     {% endblock %}
 </body>
 </html>
