@@ -10,6 +10,27 @@
     <title>Red Info</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user-list' %}">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'buildings-list' %}">Объекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'department-list' %}">Отделы</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     {% block content %}
     
     {% endblock %}
