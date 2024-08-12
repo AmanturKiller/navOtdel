@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from .serializers import UserSerializer
+from user.filters import *
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from .forms import *
@@ -8,19 +9,27 @@ from django.contrib import messages
 
 User = get_user_model()
 
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
 def user_detail(request, pk):
     user_object = User.objects.get(pk=pk)
     context = {'user': user_object}
     return render(request, 'user/user_detail.html', context)
 
+
 def user_list(request):
     user_list = User.objects.all()
-    context = {"user_list": user_list}
+    filter_object = UserFilter(
+        data=request.GET,
+        queryset=user_list
+    )
+    context = {"filter_object": filter_object}
     return render(request, 'user/user_list.html', context)
+
 
 def registration(request):
     context = {}
@@ -36,6 +45,7 @@ def registration(request):
     reg_form = RegistrationForm()
     context['reg_form'] = reg_form
     return render(request, 'profile/registration.html', context)
+
 
 def signin(request):
     context = {}
@@ -55,6 +65,7 @@ def signin(request):
     form = AuthForm()
     context['form'] = form
     return render(request, 'profile/signin.html', context)
+
 
 def signout(request):
     logout(request)
