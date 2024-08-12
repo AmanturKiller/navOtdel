@@ -3,8 +3,32 @@
 
 {% block content %}
 
-    {% for building in buildings %}
-        <div>Название: {{ building.name }} | Менеджер: {{ building.manager }} | Адрес: {{ building.address }} | Тип: {{ building.building_type }}</div>
-    {% endfor %}
+    <h1>Объекты</h1>
+    <p class="row">
+        <form class="col-lg-6" method="get">
+            {% bootstrap_form filter_object.form %}
+            <button class="btn btn-outline-success">Применить</button>
+        </form>
+    </p>
+    <table class="table table-stripped table-hover table-bordered">
+        <thead>
+            <tr class="table-light">
+                <th>Объект</th>
+                <th>Менеджер</th>
+                <th>Адрес</th>
+                <th>Тип</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for building in filter_object.qs %}
+                <tr>
+                    <td><a href="/buildings/detail/{{ building.pk }}/" style="text-decoration: none; color: black;">{{ building.name }}</a></td>
+                    <td>{{ building.manager }}</td>
+                    <td>{{ building.address }}</td>
+                    <td>{{ building.building_type }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock %}
