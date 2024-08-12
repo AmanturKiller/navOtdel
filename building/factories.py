@@ -1,21 +1,24 @@
 import factory
-from .models import Building
+from building.models import Building
 from django.contrib.auth import get_user_model
 
-User = get_user_model()
 
+User = get_user_model()
 
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
-    id = 1
 
+    username = factory.Sequence(lambda n: f'user{n}')
 
+    
 class BuildingFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Building
 
-    name = factory.Sequence(lambda n: f'test new {n}')
+    name = factory.Sequence(lambda n: f'test name {n}')
     manager = factory.SubFactory(UserFactory)
-    lat_decimal = 0.1
-    lon_decimal = 0.2
+    address = factory.Sequence(lambda n: f'test address {n}')
+    lat_decimal = factory.Sequence(lambda n: f'{n}')
+    lon_decimal = factory.Sequence(lambda n: f'{n}')
+    building_type = Building.OFFICE
