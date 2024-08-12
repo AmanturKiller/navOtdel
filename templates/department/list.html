@@ -21,7 +21,7 @@
         <tbody class="table-group-divider">
             {% for department in filter_object.qs %}
                 <tr>
-                    <td>{{ department.name }}</td>
+                    <td><a href="/department/info/{{ department.pk }}/" style="text-decoration: none; color: black;">{{ department.name }}</a></td>
                     <td>{{ department.parent }}</td>
                     <td>{{ department.manager }}</td>
                 </tr>
