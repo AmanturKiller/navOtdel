@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div style="margin-left: 3%;" class="row">
+    <div class="col-lg-6">
+        <h1>Регистрация</h1>
+        <form method = 'POST'>
+            {% csrf_token %}
+            {% bootstrap_form reg_form %}
+            <button class = 'btn btn-info'>Сохранить</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

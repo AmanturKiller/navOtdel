@@ -11,7 +11,7 @@ class UserFactory(factory.django.DjangoModelFactory):
 
     username = factory.Sequence(lambda n: f'user{n}')
 
-
+    
 class BuildingFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Building
