@@ -10,5 +10,3 @@ urlpatterns = [
     path('detail/<int:pk>/', user_detail, name="user-info"),
     path('', include(user_router.urls)),
 ]
-
-
