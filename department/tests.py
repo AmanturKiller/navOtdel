@@ -8,6 +8,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class DepartmentViewsetTestCase(TestCase):
     def setUp(self):
         self.department_object_1 = DepartmentFactory()
@@ -72,3 +73,11 @@ class DepartmentViewsetTestCase(TestCase):
         response = self.client.delete(self.url)
         self.assertEqual(response.status_code, 204)
         self.assertFalse(Department.objects.filter(pk=self.department_object_2.pk).exists())
+
+        
+class DepartmentListTestCase(TestCase):
+    def test_department_list_status(self):
+        url = '/department/list/'
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200, "Страница со списком отделов не вернула статус 200")
+
